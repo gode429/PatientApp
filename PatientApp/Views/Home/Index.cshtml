@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<body style="text-align:center; background-color:lightyellow;">
+    <hr />
+    <h1>You are currently logged in.</h1>
+    <hr />
+</body>
+    Welcome @HttpContext.Current.User.Identity.Name
+
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "Patient", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+        }
+    }
